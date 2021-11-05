@@ -285,4 +285,50 @@ class Bloco4Test {
         int result = Bloco4.produtoEscalar(new int[]{1,2,5}, new int[]{3,4});
         assertEquals(expected,result);
     }
+    //Ex 12 testes:
+    @Test
+    void numeroColunasMatrizNumColunasDiferentes1() throws Exception {
+        int expected = -1;
+        int result = Bloco4.numeroColunasMatriz(new int[][]{{1,2},{3,4,5},{6,7}});
+        assertEquals(expected,result);
+    }
+    @Test
+    void numeroColunasMatrizNumColunasIguais1() throws Exception {
+        int expected = 3;
+        int result = Bloco4.numeroColunasMatriz(new int[][]{{1,2,3},{4,5,6}});
+        assertEquals(expected,result);
+    }
+    @Test
+    void numeroColunasMatrizNumColunasIguais2() throws Exception {
+        int expected = 3;
+        int result = Bloco4.numeroColunasMatriz(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+        assertEquals(expected,result);
+    }
+    //Ex 13 testes:
+    @Test
+    void verificaMatrizQuadradaTrue() throws Exception {
+        boolean result = Bloco4.verificaMatrizQuadrada(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+        assertEquals(true,result);
+    }
+    @Test
+    void verificaMatrizQuadradaFalse() throws Exception {
+        boolean result = Bloco4.verificaMatrizQuadrada(new int[][]{{1,2,3},{4,5,6}});
+        assertEquals(false,result);
+    }
+    //Ex 14 testes:
+    @Test
+    void verificaMatrizRectangularTrue() throws Exception {
+        boolean result = Bloco4.verificaMatrizRectangular(new int[][]{{1,2,3},{4,5,6}});
+        assertEquals(true,result);
+    }
+    @Test
+    void verificaMatrizRectangularFalse() throws Exception {
+        boolean result = Bloco4.verificaMatrizRectangular(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+        assertEquals(false,result);
+    }
+    @Test
+    void verificaMatrizRectangularFalseNotMatrix() throws Exception {
+        boolean result = Bloco4.verificaMatrizRectangular(new int[][]{{1,2,3},{4,5,6},{7,8}});
+        assertEquals(false,result);
+    }
 }

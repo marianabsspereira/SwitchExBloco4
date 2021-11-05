@@ -70,7 +70,7 @@ public class Bloco4 {
     }
     //Ex 5 : Tb não fiz para impares (solução seria idêntica)
     public static int somaPares (int numero){
-        int soma = 0;
+        int soma;
         //Devolve o nº em vector
         int [] vector = Bloco4.vectorDigitos(numero);
         //Devolve vector só com os pares
@@ -178,7 +178,7 @@ public class Bloco4 {
     }
     //alinea c)
     public static double mediaElementosC (int[] vectorIn){
-        double media = 0;
+        double media;
         int soma = 0;
 
         for (int i = 0; i < vectorIn.length; i++){
@@ -257,7 +257,7 @@ public class Bloco4 {
     public static int produtoEscalar (int[] v, int [] u){
         int produtoEscalar = 0;
         int N = v.length;
-        //Prod escalar obg a vectores com o mm nº de posições. N guarda o menor dos 2 tamanhos
+
         if (N > u.length){
            N = u.length;
         }
@@ -267,5 +267,65 @@ public class Bloco4 {
         }
 
         return produtoEscalar;
+    }
+    //Não é um exercício: usando esta func da para criar os vectores c/ max de posições e ao fim reduzi-lo
+    public static int[] reduzArray (int[] vectorIn, int N){
+        int newSize = vectorIn.length - N;
+        int [] vectorOut = new int[newSize];
+
+        for (int i = 0; i < newSize; i++){
+            vectorOut[i] = vectorIn[i];
+        }
+
+        return vectorOut;
+    }
+    //Ex 12: myMat = new double[Lines][Columns]; throws Exception -> tem de estar aqui pq não trato as excepções
+    public static int numeroColunasMatriz (int[][] matrizIn) throws Exception {
+        int contaColunasLinhaActual;
+        int contaColunasLinhaSeguinte;
+        int resultado;
+
+        if (matrizIn.length == 0 || matrizIn[0].length == 0){
+            throw new Exception("Objecto recebido não é uma matriz");
+        }
+
+        for (int i = 0; i < matrizIn.length - 1; i++){
+            contaColunasLinhaActual = matrizIn[i].length;
+            contaColunasLinhaSeguinte = matrizIn[i+1].length;
+
+            if (contaColunasLinhaActual != contaColunasLinhaSeguinte){
+                resultado = -1;
+                return resultado;
+            }
+        }
+
+        resultado = matrizIn[0].length;
+        return resultado;
+    }
+    //Ex 13
+    public static boolean verificaMatrizQuadrada (int[][] matrizIn) throws Exception {
+        boolean resultado = false;
+        int numColMatriz;
+
+        numColMatriz = Bloco4.numeroColunasMatriz(matrizIn);
+
+        if (numColMatriz != -1 && matrizIn.length == numColMatriz){
+            resultado = true;
+        }
+
+        return resultado;
+    }
+    //Ex 14
+    public static boolean verificaMatrizRectangular (int[][] matrizIn) throws Exception {
+        boolean resultado = false;
+        int numColMatriz;
+
+        numColMatriz = Bloco4.numeroColunasMatriz(matrizIn);
+
+        if (numColMatriz != -1 && matrizIn.length != numColMatriz){
+            resultado = true;
+        }
+
+        return resultado;
     }
 }
