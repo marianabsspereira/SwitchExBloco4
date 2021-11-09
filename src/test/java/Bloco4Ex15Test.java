@@ -104,4 +104,100 @@ class Bloco4Ex15Test {
         });
         Assertions.assertEquals("Objecto recebido não é uma matriz", thrown.getMessage());
     }
+    //e)
+    @Test
+    void matrizValoresUnicosTeste1() {
+        int [] expected = {1,2,3};
+        int [] result = Bloco4Ex15.matrizValoresUnicos(new int[][]{{1,2,3},{4,4,5},{5,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizValoresUnicosTeste2() {
+        int [] expected = {1,2,3,4,8};
+        int [] result = Bloco4Ex15.matrizValoresUnicos(new int[][]{{1,2,3},{4,8,5},{5,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizValoresUnicosTeste3() {
+        int [] expected = {};
+        int [] result = Bloco4Ex15.matrizValoresUnicos(new int[][]{{2,2,2},{4,4,5},{5,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    //f)
+    @Test
+    void matrizValoresPrimosTeste1() {
+        int [] expected = {2,2,2,5,5};
+        int [] result = Bloco4Ex15.matrizValoresPrimos(new int[][]{{2,2,2},{4,4,5},{5,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizValoresPrimosTeste2() {
+        int [] expected = {};
+        int [] result = Bloco4Ex15.matrizValoresPrimos(new int[][]{{8,9,8},{4,4,10},{10,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    //g)
+    @Test
+    void matrizDiagonalPrincipalTeste1() {
+        int [] expected = {8,4,6};
+        int [] result = Bloco4Ex15.matrizDiagonalPrincipal(new int[][]{{8,9,8},{4,4,10},{10,6,6}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizDiagonalPrincipalTeste2() {
+        int [] expected = {8,4,6};
+        int [] result = Bloco4Ex15.matrizDiagonalPrincipal(new int[][]{{8,9,8},{4,4,10},{10,6,6},{1,5,2}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizDiagonalPrincipalTeste3() {
+        int [] expected = {8,4,6};
+        int [] result = Bloco4Ex15.matrizDiagonalPrincipal(new int[][]{{8,9,8,1},{4,4,10,2},{10,6,6,3}});
+        assertArrayEquals(expected,result);
+    }
+    //h)
+    @Test
+    void matrizDiagonalSecundariaTeste1() {
+        int [] expected = {8,4,10};
+        int [] result = Bloco4Ex15.matrizDiagonalSecundaria(new int[][]{{8,9,8,1},{4,4,10,2},{10,6,6,3}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizDiagonalSecundariaTeste2() {
+        int [] expected = {9,4};
+        int [] result = Bloco4Ex15.matrizDiagonalSecundaria(new int[][]{{8,9},{4,4},{10,6}});
+        assertArrayEquals(expected,result);
+    }
+    @Test
+    void matrizDiagonalSecundariaTeste3() {
+        int [] expected = {1,4,10};
+        int [] result = Bloco4Ex15.matrizDiagonalSecundaria(new int[][]{{8,9,1},{4,4,2},{10,6,3}});
+        assertArrayEquals(expected,result);
+    }
+    //i)
+    @Test
+    void matrizIdentidadeTesteTrue() throws Exception {
+        boolean result = Bloco4Ex15.matrizIdentidade(new int[][]{{1,0,0},{0,1,0},{0,0,1}});
+        assertEquals(true,result);
+    }
+    @Test
+    void matrizIdentidadeTesteFalse1() throws Exception {
+        boolean result = Bloco4Ex15.matrizIdentidade(new int[][]{{1,0,3},{0,1,0},{0,0,1}});
+        assertEquals(false,result);
+    }
+    @Test
+    void matrizIdentidadeTesteFalse2() throws Exception {
+        boolean result = Bloco4Ex15.matrizIdentidade(new int[][]{{1,0},{0,1},{0,0}});
+        assertEquals(false,result);
+    }
+    @Test
+    void matrizIdentidadeTesteFalse3() throws Exception {
+        boolean result = Bloco4Ex15.matrizIdentidade(new int[][]{{1,0},{0,1},{0,0,1}});
+        assertEquals(false,result);
+    }
+    @Test
+    void matrizIdentidadeTesteFalse4() throws Exception {
+        boolean result = Bloco4Ex15.matrizIdentidade(new int[][]{{2,0,0},{0,1,0},{0,0,1}});
+        assertEquals(false,result);
+    }
 }
